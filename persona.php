@@ -7,6 +7,7 @@
 	<body>
 		<h1> Persona</h1>
 		<h2> Name:</h2>
+		<img src="images/profilepic.jpg" alt="profilepic"/>
 			Janet Nardi
 		<h2>Age:</h2>
 			mid 50’s
@@ -22,7 +23,6 @@ She travels to client sites and potential client sites all over North America.  
 not a power user of technology and gets frustrated having to constantly figure out new
 features and apps.  She does not have time to learn between the airport, the office, the
 hotel, and multiple business meetings.</p>
-			<hr></hr>
 			<p>Her business meetings can include a variety of people from entry level to CEO’s.
 Primarily her business meetings need to take place off of the clients site and are dinner
 meetings at local restaurants.  Janet enjoys fine wine and great food and likes to share
