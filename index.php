@@ -65,23 +65,22 @@
 			<tr>
 				<td>profileId</td>
 				<td>userName</td>
-				<td>userSalt</td>
-				<td>userHash</td>
-				<td>primaryDiningCity</td>
+				<td>food</td>
 			</tr>
 			<tr>
 				<td>userName</td>
 				<td>review</td>
-				<td>reviewTags</td>
-				<td>null</td>
-				<td>null</td>
+				<td>ambience</td>
 			</tr>
 			<tr>
-				<td>food</td>
-				<td>ambience</td>
+				<td>userSalt</td>
+				<td>tags</td>
 				<td>service</td>
-				<td>value</td>
+			</tr>
+			<tr>
+				<td>userHash</td>
 				<td>null</td>
+				<td>value</td>
 			</tr>
 		</table>
 	</body>
