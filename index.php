@@ -45,15 +45,16 @@
 			needs to include free form text so that individual reviewers can type their experiences
 			andopinions.</p>
 		<h1> Use Case</h1>
-		<p> Goal:  Janet wants to use opentable to read reviews of the restaurant she has chosen for her business dinner
-			meeting.
+		<p> Goal:  Janet wants to use opentable to read reviews regarding her restaurant of choice for her business
+			dinner meeting on her Lenovo Think Pad while flying the friendly skies.
 		<ol>
-			<li>0)  Janet goes to www.opentable.com and finds the list of restaurant reviews she wants to read regarding
-				her restaurant of choice for her business dinner meeting on her Lenovo Think Pad while flying the friendly
-				skies</li>
-			<li>1)open table generates the list of user reviews </li>
+			<li>0)Janet goes to www.opentable.com and clicks on the restaurant she has chosen.</li>
+			<li>1)opentable generates a summarized list of all the user reviews written for this restaurant.</li>
+			<li>2)Janet scrolls down to the review of her choice</li>
+			<li>3)opentable displays the list and moves the list according to the direction of the scroll</li>
+			<li>4)Janet clicks on the review she wants to read in its entirety</li>
+			<li>5)opentable displays a individual review including the ratings, the free form text and the username</li>
 		</ol>
-
 		</p>
 		<h1>Conceptual Schema</h1>
 		<table>Entities
