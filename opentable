@@ -3,3 +3,37 @@ DROP TABLE IF EXISTS restaurants
 DROP TABLE IF EXISTS ratings
 DROP TABLE IF EXISTS reviews
 DROP TABLE IF EXISTS tags
+
+CREATE TABLE profile (
+profileId INT UNSIGNED AUTO_INCREMENT NOT NULL,
+userName VARCHAR(128) NOT NULL,
+userSalt VARCHAR(64) NOT NULL,
+userHash VARCHAR(128) NOT NULL
+PRIMARY KEY (profileId)
+);
+
+CREATE TABLE ratings (
+restID
+profileID
+rateService
+rateFood
+rateAmbience
+rateValue
+);
+
+CREATE TABLE reviews (
+profileID
+tagName
+restID
+);
+
+CREATE TABLE tags(
+tagsName
+profileId
+restId
+);
+
+CREATE TABLE restaurants(
+restName
+restId
+)
