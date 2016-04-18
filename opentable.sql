@@ -21,12 +21,12 @@ PRIMARY KEY (restId)
 CREATE TABLE tags(
 tagsId INT UNSIGNED AUTO_INCREMENT NOT NULL,
 tagsName VARCHAR(64),
-FOREIGN KEY (profileId) REFERENCES profile(profileId),
-FOREIGN KEY (restId) REFERENCES restaurants(restId),
 PRIMARY KEY (tagsId)
 );
 
 CREATE TABLE ratings (
+restId,
+profileId,
 rateService INT UNSIGNED MIN(1) MAX(5),
 rateFood INT  UNSIGNED MIN(1) MAX(5),
 rateAmbience INT UNSIGNED MIN(1) MAX(5),
@@ -37,6 +37,8 @@ PRIMARY KEY (restId, profileId)
 );
 
 CREATE TABLE reviews (
+restId
+profileId
 tagName VARCHAR (64),
 FOREIGN KEY (profileId) REFERENCES profile (profileId),
 FOREIGN KEY (restId) REFERENCES restaurants (restId),
