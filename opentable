@@ -28,12 +28,15 @@ restID
 );
 
 CREATE TABLE tags(
-tagsName
-profileId
-restId
+tagsId INT UNSIGNED AUTO_INCREMENT NOT NULL,
+tagsName VARCHAR(64)
+FOREIGN KEY (profileId) REFERENCES profile(profileId),
+FOREIGN KEY (restId) REFEREMCES restaurants(restId)
+PRIMARY KEY (tagsId)
 );
 
 CREATE TABLE restaurants(
-restName
-restId
-)
+restName VARCHAR(128) NOT NULL
+restId INT UNSIGNED AUTO_INCREMENT NOT NULL,
+PRIMARY KEY (restId)
+);
