@@ -27,8 +27,8 @@ PRIMARY KEY (tagsId)
 );
 
 CREATE TABLE ratings (
-restId INT,
-profileId INT,
+restId INT UNSIGNED NOT NULL,
+profileId INT UNSIGNED NOT NULL,
 rateService INT UNSIGNED MIN(1) MAX(5),
 rateFood INT  UNSIGNED MIN(1) MAX(5),
 rateAmbience INT UNSIGNED MIN(1) MAX(5),
@@ -39,8 +39,8 @@ PRIMARY KEY (restId, profileId)
 );
 
 CREATE TABLE reviews (
-restId INT,
-profileId INT,
+restId INT UNSIGNED NOT NULL,
+profileId INT UNSIGNED NOT NULL,
 tagName VARCHAR (64),
 FOREIGN KEY (profileId) REFERENCES profile (profileId),
 FOREIGN KEY (restId) REFERENCES restaurants (restId),
