@@ -22,12 +22,12 @@ class profile implements \JsonSerialize {
 	 * userHash hashing the user input
 	 * @var string userHash
 	 **/
-	private $userHash;
+	private $userSalt;
 	/**
 	 * userSalt salting the user input
 	 * @var string
 	 **/
-	private $userSalt;
+	private $userHash;
 
 	/**
 	 * accessor method for profile id
@@ -81,3 +81,32 @@ class profile implements \JsonSerialize {
 		//store the user name
 		$this->userName = $newUserName;
 	}
+	/**
+	 * accessor method for user salt
+	 *
+	 * return string value for user salt
+	 **/
+	public function getUserSalt() {
+		return $this->userSalt;
+	}
+	/**
+	 *mutator method for user salt
+	 *@param string $newUserSalt new value of user salt
+	 *@throws \InvalidArgumentException if $newUserSalt is not a string or insecure
+	 *@throws \RangeException if $newUserSalt is > 64 characters
+	 *@throws \TypeError if $newUserSalt is not a string
+	 **/
+	public function setUserSalt (string $newUserSalt) {
+		//verify the user salt content is secure
+		$newUserSalt = trim($newUserSalt);
+		$newUserSalt = filter_var($newUserSalt,FILTER_SANITIZE_STRING);
+		if(empty($newUserSalt)=== true){
+			throw(new \ InvalidArgumentException ("user salt is empty or insecure"));
+		}
+		//verify the user salt will fit in the database
+		if(strlen($newUserSalt) >64) {
+			throw(new\ RangeException ("user salt is too long"));
+		}
+		//store the user salt
+		$this->userSalt = $newUserSalt;
+}
