@@ -110,3 +110,33 @@ class profile implements \JsonSerialize {
 		//store the user salt
 		$this->userSalt = $newUserSalt;
 }
+	/**
+	 *accessor method for user hash
+	 *
+	 *return string value for user hash
+	 **/
+	public function getUserHash() {
+		return $this->userHash;
+	}
+	/**
+	 *mutator method for user hash
+	 *
+	 *@param string $newuserhash new value of user hash
+	 *@throws \InvalidArgumentException if $newuserhash is not a string or insecure
+	 *@throws \RangeException if $newuserhash is > 128 characters
+	 *@throws \TypeError if $newuserhash is not a string
+	 **/
+	public function setUserHash (string $newUserHash){
+		//verify the user hash content is secure
+		$newUserHash = trim($newUserHash);
+		$newUserHash = filter_var($newUserHash, FILTER_SANITIZE_STRING);
+		if(empty($newUserHash)===true){
+			throw(new\InvalidArgumentException ("user hash is empty or insecure"));
+		}
+		//verify the hash will fit in the database
+		if(strlen($newUserHash) >128) {
+			throw (new\ RangeException ("user hash is too long"));
+		}
+				//store new user hash
+			$this->userHash = $newUserHash;
+		}
