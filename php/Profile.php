@@ -29,13 +29,20 @@ class profile implements \JsonSerialize {
 	 **/
 	private $userHash;
 	/**
-	 *constructor for this tweet
+	 *constructor for this review
 	 *
 	 * @param int $newprofileId where the new value of profile is assigned
 	 * @param string $newUserName where the new user name is provided
 	 * @param string $newUserSalt where salt is added to protect password
 	 * @param string $newUserHash where hash is added for security
-	 */
+	 * @throws \RangeException if data values are out of range (strings too long, negative integers)
+	 * @throws \TypeError if data types violate type
+	 * @throws \InvalidArgumentException if data types are not valid
+	 **/
+	public function __construct(int $newprofileId, string $newUserName, string $newUserSalt, string $newUserHash) {
+		try {$this->setProfileId($newprofileId)}
+	}
+	}
 
 	/**
 	 * accessor method for profile id
@@ -129,7 +136,7 @@ class profile implements \JsonSerialize {
 	/**
 	 *mutator method for user hash
 	 *
-	 *@param string $newuserhash new value of user hash
+	 *@param string $newUserHash new value of user hash
 	 *@throws \InvalidArgumentException if $newuserhash is not a string or insecure
 	 *@throws \RangeException if $newuserhash is > 128 characters
 	 *@throws \TypeError if $newuserhash is not a string
