@@ -28,6 +28,14 @@ class profile implements \JsonSerialize {
 	 * @var string
 	 **/
 	private $userHash;
+	/**
+	 *constructor for this tweet
+	 *
+	 * @param int $newprofileId where the new value of profile is assigned
+	 * @param string $newUserName where the new user name is provided
+	 * @param string $newUserSalt where salt is added to protect password
+	 * @param string $newUserHash where hash is added for security
+	 */
 
 	/**
 	 * accessor method for profile id
