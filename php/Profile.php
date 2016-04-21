@@ -40,8 +40,18 @@ class profile implements \JsonSerialize {
 	 * @throws \InvalidArgumentException if data types are not valid
 	 **/
 	public function __construct(int $newprofileId, string $newUserName, string $newUserSalt, string $newUserHash) {
-		try {$this->setProfileId($newprofileId)}
-	}
+		try {
+			$this->setProfileId($newprofileId);
+			$this->setUserName($newUserName);
+			$this->setUserSalt($newUserSalt);
+			$this->setUserHash($newUserHash);
+		} catch(\RangeException $range) {
+			//rethrow the exception to the caller
+		}	throw(new \RangeException($range->getMessage(), 0, $range));
+		} catch(\TypeError:: $typeError){
+			//rethrow the exception to the caller
+		}	throw (new \TypeError($typeError->getmessage("your data is the incorrect type"),$typeError));
+	}	 catch(\)
 	}
 
 	/**
