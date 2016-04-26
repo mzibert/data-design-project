@@ -2,10 +2,10 @@
 namespace Edu\Cnm\mzibert\DataDesign;
 
 /**
- * typical profile for the opentable site
+ * A typical restaurant review from Opentable's site
  *
- * This profile is an example of data collected for the site Opentable and the required information
- * necessary to write a restaurant review
+ * This review resembles a single example of the information that Opentable uses and displays
+ * in their restaurant reviews.
  *
  * @author Merri Zibert <mzibert@cnm.edu>
  * @version 1.0
@@ -25,12 +25,12 @@ class profile {
 	 * userHash hashing the user input
 	 * @var string userHash
 	 **/
-	private $userSalt;
+	private $userHash;
 	/**
 	 * userSalt salting the user input
 	 * @var string
 	 **/
-	private $userHash;
+	private $userSalt;
 	/**
 	 *constructor for this review
 	 *
@@ -42,20 +42,22 @@ class profile {
 	 * @throws \TypeError if data types violate type
 	 * @throws \InvalidArgumentException if data types are not valid
 	 **/
-	public function __construct(int $newprofileId, string $newUserName, string $newUserSalt, string $newUserHash) {
+	public function __construct(int $newprofileId, string $newUserName, string $newUserHash, string $newUserSalt) {
 		try {
 			$this->setProfileId($newprofileId);
 			$this->setUserName($newUserName);
-			$this->setUserSalt($newUserSalt);
 			$this->setUserHash($newUserHash);
-		} catch(\RangeException $range) {
+			$this->setUserSalt($newUserSalt);
+		}catch(\RangeException $range) {
 			//rethrow the exception to the caller
-		}	throw(new \RangeException($range->getMessage(), 0, $range));
-		} catch(\TypeError:: $typeError){
+			throw(new \RangeException($range->getMessage(), 0, $range));
+		} catch(\TypeError $typeError) {
 			//rethrow the exception to the caller
-		}	throw (new \TypeError($typeError->getmessage("your data is the incorrect type"),$typeError));
-	}	 catch(\)
-	}
+			throw(new \TypeError($typeError->getmessage("your data is the incorrect type"), 0, $typeError));
+		} catch(\InvalidArgumentException $invalidArgument) {
+			//rethrow the exception to the caller
+			throw (new \InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
+		}
 
 	/**
 	 * accessor method for profile id
@@ -63,7 +65,7 @@ class profile {
 	 * @return int value of profile id
 	 **/
 	public function getProfileId() {
-		return ($this->profileId);
+		return($this->profileId);
 	}
 
 	/**
