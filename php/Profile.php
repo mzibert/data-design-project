@@ -2,12 +2,15 @@
 namespace Edu\Cnm\mzibert\DataDesign;
 
 /**
- * First pass at creating an accessor method for my autotroph entity
+ * typical profile for the opentable site
+ *
+ * This profile is an example of data collected for the site Opentable and the required information
+ * necessary to write a restaurant review
  *
  * @author Merri Zibert <mzibert@cnm.edu>
  * @version 1.0
  **/
-class profile implements \JsonSerialize {
+class profile {
 	/**
 	 * id for this profile that is assigned by the system; this is the primary key
 	 * @var int $profileId
@@ -60,16 +63,17 @@ class profile implements \JsonSerialize {
 	 * @return int value of profile id
 	 **/
 	public function getProfileId() {
-		return $this->profileId;
+		return ($this->profileId);
 	}
 
 	/**
 	 * mutator method for profile id
+	 *
 	 * @param int $newprofileId new value of profile id
 	 * @throws \rangeexception if $newprofileid is not positive
 	 * @throws \TypeError if $newProfileId is not an integer
 	 **/
-	public function setProfileId(int $newProfileId) {
+	public function setProfileId($newProfileId) {
 		//verify the profile id is positive
 		if($newProfileId <= 0) {
 			throw(new \RangeException("profile id is not positive"));
