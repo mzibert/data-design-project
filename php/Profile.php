@@ -48,7 +48,7 @@ class profile {
 			$this->setUserName($newUserName);
 			$this->setUserHash($newUserHash);
 			$this->setUserSalt($newUserSalt);
-		}catch(\RangeException $range) {
+		} catch(\RangeException $range) {
 			//rethrow the exception to the caller
 			throw(new \RangeException($range->getMessage(), 0, $range));
 		} catch(\TypeError $typeError) {
@@ -58,6 +58,7 @@ class profile {
 			//rethrow the exception to the caller
 			throw (new \InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
 		}
+	}
 
 	/**
 	 * accessor method for profile id
