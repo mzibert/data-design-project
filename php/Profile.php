@@ -179,14 +179,15 @@ class profile {
 		 *@throws \PDOException when mySQL related errors occur
 		 *@throws \TypeError if $pdo is not PDO connection object
 		 **/
-	public function insert(\PDO $pdo) {
+	//public function insert(\PDO $pdo) {
 		//enforce the userName is unique (i.e., dont insert a username that already exists)
-			if($this->userName !== null) {
-				throw(new \PDOException("not a new userName"));
-			}
+			//if($this->userName !== null) {
+				//throw(new \PDOException("not a new userName"));
+			//}
 			//create query template
-			$query = "INSERT INTO userName"
+			//$query = "INSERT INTO userName"
 		}
 
-		}
-	}
+		$userInput = new profile(1234, 123, "12423232323232", "23232323232323232");
+
+var_dump($userInput);
